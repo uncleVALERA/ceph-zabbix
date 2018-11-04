@@ -2578,6 +2578,38 @@ Full cluster issues usually arise when testing how Ceph handles an OSD failure o
             <tags/>
         </trigger>
         <trigger>
+            <expression>{Template Ceph:ceph.health[{$CLUSTER_NAME},health,{HOST.HOST}].last()}=0</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>Ceph Cluster Status is ERROR</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Ceph Cluster Status is ERROR</description>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{Template Ceph:ceph.health[{$CLUSTER_NAME},health,{HOST.HOST}].last()}=2</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>Ceph Cluster Status is HEALTH_WARN</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>2</priority>
+            <description>Ceph Cluster Status is HEALTH_WARN</description>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
             <expression>{Template Ceph:ceph.fullratio.timeleft(86400,,0)}&lt;1d</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
